@@ -1,0 +1,797 @@
+<!doctype html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Kelas X RPL 1</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hover-lift:hover {
+            transform: translateY(-5px);
+            transition: transform 0.3s ease;
+        }
+
+        .nav-link {
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            transform: scale(1.05);
+        }
+
+        .card-shadow {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .card-shadow:hover {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        .section {
+            scroll-margin-top: 80px;
+        }
+
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        .lightbox.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+
+        .today-highlight {
+            background-color: #fef3c7;
+            font-weight: 600;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .badge-new {
+            background-color: #dc2626;
+            color: white;
+        }
+
+        .badge-important {
+            background-color: #f59e0b;
+            color: white;
+        }
+
+        .nav-item {
+            position: relative;
+            color: white;
+            padding: 6px 0;
+            transition: 0.3s;
+        }
+
+        .nav-item::after {
+            content: "";
+            position: absolute;
+            width: 0%;
+            height: 2px;
+            left: 0;
+            bottom: -4px;
+            background: white;
+            transition: 0.3s;
+        }
+
+        .nav-item:hover::after {
+            width: 100%;
+        }
+
+        .mobile-item {
+            display: block;
+            padding: 10px;
+            border-radius: 8px;
+            color: white;
+            transition: 0.3s;
+        }
+
+        .mobile-item:hover {
+            background-color: #b91c1c;
+        }
+
+        .section-title {
+            color: #dc2626;
+        }
+    </style>
+    <style>
+        @view-transition {
+            navigation: auto;
+        }
+    </style>
+    <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+    <script src="/_sdk/element_sdk.js" type="text/javascript"></script>
+</head>
+
+<body style="background-color: #fef2f2; color: #1e293b;"><!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-red-700/95 backdrop-blur-md shadow-lg">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex items-center justify-between h-16">
+
+                <!-- Logo -->
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+                        <i class="fas fa-code text-red-700"></i>
+                    </div>
+                    <span class="text-white font-bold text-lg tracking-wide">
+                        XI RPL 1
+                    </span>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center gap-6 text-sm font-medium">
+                    <a href="#home" class="nav-item">Beranda</a>
+                    <a href="#identity" class="nav-item">Identitas</a>
+                    <a href="#students" class="nav-item">Data Siswa</a>
+                    <a href="#structure" class="nav-item">Struktur</a>
+                    <a href="#achievements" class="nav-item">Prestasi</a>
+                    <a href="#contact" class="nav-item">Kontak</a>
+                </div>
+
+                <!-- Hamburger -->
+                <button id="mobile-btn" class="md:hidden text-white text-2xl focus:outline-none">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-red-800 px-4 pb-4 space-y-2 text-sm font-medium">
+            <a href="#home" class="mobile-item">Beranda</a>
+            <a href="#identity" class="mobile-item">Identitas</a>
+            <a href="#students" class="mobile-item">Data Siswa</a>
+            <a href="#structure" class="mobile-item">Struktur</a>
+            <a href="#achievements" class="mobile-item">Prestasi</a>
+            <a href="#contact" class="mobile-item">Kontak</a>
+        </div>
+    </nav><!-- Hero Section -->
+    <section id="home" class="section min-h-screen flex items-center justify-center text-center px-4
+bg-gradient-to-br from-red-800 to-red-600 text-white">
+
+        <div class="max-w-4xl mx-auto">
+
+            <h1 class="text-3xl sm:text-4xl md:text-6xl font-bold leading-tight mb-6">
+                Selamat Datang di Website Kelas
+                <span class="italic">XI RPL 1</span>
+            </h1>
+
+            <p class="text-base sm:text-lg md:text-xl mb-6 text-red-100">
+                Informasi lengkap siswa dan wali kelas
+            </p>
+
+            <div class="text-lg sm:text-xl font-semibold italic mb-10 text-red-200">
+                "Bersama Meraih Prestasi, Bersatu Dalam Harmoni"
+            </div>
+
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+
+                <a href="#identity"
+                    class="px-6 py-3 rounded-lg font-semibold bg-white text-red-700 hover:scale-105 transition">
+                    Lihat Profil
+                </a>
+
+                <a href="#students"
+                    class="px-6 py-3 rounded-lg font-semibold border-2 border-white hover:bg-white hover:text-red-700 transition">
+                    Data Siswa
+                </a>
+
+                <a href="#contact"
+                    class="px-6 py-3 rounded-lg font-semibold border-2 border-white hover:bg-white hover:text-red-700 transition">
+                    Hubungi Kami
+                </a>
+
+            </div>
+
+        </div>
+    </section><!-- Identity Section -->
+    <section id="identity" class="section py-16">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12 section-title">
+                Identitas Kelas
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                <div class="card-shadow rounded-lg p-5 md:p-8 hover-lift" style="background-color: #ffffff;">
+                    <div class="flex items-center mb-6">
+                        <svg class="h-16 w-16 mr-4" viewbox="0 0 100 100" fill="#dc2626">
+                            <circle cx="50" cy="50" r="45" />
+                            <path d="M30 40 L50 25 L70 40 L70 75 L30 75 Z" fill="white" />
+                            <rect x="42" y="55" width="16" height="20" fill="#dc2626" />
+                        </svg>
+                        <div>
+                            <h3 class="text-xl md:text-2xl font-bold">XI RPL 1</h3>
+                            <p class="text-base md:text-lg">SMK MAHARDHIKA BATUJAJAR</p>
+                        </div>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="flex items-center"><i class="fas fa-calendar w-8" style="color: #dc2626;"></i>
+                            <span>Tahun Ajaran: <strong>2026/2027</strong></span>
+                        </div>
+                        <div class="flex items-center"><i class="fas fa-user-tie w-8" style="color: #dc2626;"></i>
+                            <span>Wali Kelas: <strong>Divi Pratiwi, S.Pd</strong></span>
+                        </div>
+                        <div class="flex items-center"><i class="fas fa-users w-8" style="color: #dc2626;"></i>
+                            <span>Jumlah Siswa: <strong>40</strong> orang</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-shadow rounded-lg p-8" style="background-color: #ffffff;">
+                    <h3 class="text-xl font-bold mb-4">Tentang Kelas</h3>
+                    <p class="mb-4">Kelas kami adalah siswa siswi yang solid dan berprestasi. Kami berkomitmen untuk
+                        mencapai keunggulan akademik dan non-akademik.</p>
+                    <div class="grid grid-cols-2 gap-4 mt-6">
+                        <div class="text-center p-4 rounded-lg" style="background-color: #fef2f2;">
+                            <div class="text-3xl font-bold" style="color: #dc2626;">
+                                20
+                            </div>
+                            <div class="text-sm">
+                                Siswa
+                            </div>
+                        </div>
+                        <div class="text-center p-4 rounded-lg" style="background-color: #fef2f2;">
+                            <div class="text-3xl font-bold" style="color: #dc2626;">
+                                20
+                            </div>
+                            <div class="text-sm">
+                                Siswi
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Wali Kelas Section -->
+                <div class="mt-12">
+                    <div class="card-shadow rounded-lg p-8 text-center hover-lift max-w-xl mx-auto"
+                        style="background-color: #ffffff;">
+
+                        <div class="w-40 h-40 mx-auto mb-6 rounded-full overflow-hidden border-4"
+                            style="border-color: hwb(0 44% 56%);">
+                            <img src="imgs/bu_divi.jpeg" alt="Divi Pratiwi, S.Pd" class="w-full h-full object-cover">
+                        </div>
+
+                        <h3 class="text-2xl font-bold mb-2">Divi Pratiwi, S.Pd</h3>
+                        <p class="text-lg font-semibold mb-2" style="color: #1b1b1b;">
+                            Wali Kelas XI RPL 1
+                        </p>
+
+                        <p class="text-gray-600">
+                            Pembimbing yang selalu mendukung siswa dalam mencapai prestasi akademik maupun
+                            non-akademik.
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!-- Students Section -->
+    <section id="structure" class="section py-16 bg-red-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-8 section-title">
+                Data Siswa/i
+            </h2>
+            <div class="mb-8 flex flex-col sm:flex-row gap-4 justify-between items-center"><input type="text"
+                    id="search-student" placeholder="Cari nama siswa..."
+                    class="px-4 py-2 border rounded-lg w-full sm:w-96" style="border-color: #dc2626;">
+                <div class="flex gap-2"><button class="filter-btn px-4 py-2 rounded-lg font-semibold" data-filter="all"
+                        style="background-color: #dc2626; color: #ffffff;">Semua</button> <button
+                        class="filter-btn px-4 py-2 rounded-lg font-semibold" data-filter="L"
+                        style="background-color: #dc2626; color: #ffffff;">Laki-laki</button> <button
+                        class="filter-btn px-4 py-2 rounded-lg font-semibold" data-filter="P"
+                        style="background-color: #dc2626; color: #ffffff;">Perempuan</button>
+                </div>
+            </div>
+            <div id="students-grid" class="grid grid-cols-2 lg:grid-cols-6 gap-6"></div>
+        </div>
+    </section>
+    <!-- Structure Section -->
+    <section id="structure" class="section py-16 bg-red-50">
+        <div class="max-w-5xl mx-auto px-4">
+
+            <h2 class="text-4xl font-bold text-center mb-12 section-title">
+                Struktur Kelas XI RPL 1
+            </h2>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <!-- Ketua -->
+                <div class="card-shadow rounded-xl p-6 text-center hover-lift bg-white">
+                    <h3 class="font-bold text-xl mb-4">Ketua</h3>
+                    <ol class="space-y-1 text-sm md:text-base list-decimal list-inside">
+                        <li>Irawan Nugraha</li>
+                    </ol>
+                </div>
+
+                <!-- Wakil -->
+                <div class="card-shadow rounded-xl p-6 text-center hover-lift bg-white">
+                    <h3 class="font-bold text-xl mb-4">Wakil Ketua</h3>
+                    <ol class="space-y-1 text-sm md:text-base list-decimal list-inside">
+                        <li>Bintang Rimas S</li>
+                    </ol>
+                </div>
+
+                <!-- Sekretaris -->
+                <div class="card-shadow rounded-xl p-6 text-center hover-lift bg-white">
+                    <h3 class="font-bold text-xl mb-4">Sekretaris</h3>
+                    <ol class="space-y-1 text-sm md:text-base list-decimal list-inside">
+                        <li>Reva Sri Y</li>
+                        <li>Syafira Ghiani</li>
+                    </ol>
+                </div>
+
+                <!-- Bendahara -->
+                <div class="card-shadow rounded-xl p-6 text-center hover-lift bg-white">
+                    <h3 class="font-bold text-xl mb-4">Bendahara</h3>
+                    <ol class="space-y-1 text-sm md:text-base list-decimal list-inside">
+                        <li>Novtiana Aulia</li>
+                        <li>Salsa Remina A</li>
+                    </ol>
+                </div>
+
+                <!-- Keamanan -->
+                <div class="card-shadow rounded-xl p-6 text-center hover-lift bg-white">
+                    <h3 class="font-bold text-xl mb-4">Keamanan</h3>
+                    <ol class="space-y-1 text-sm md:text-base list-decimal list-inside">
+                        <li>Aldi Febriansyah S</li>
+                        <li>Rizqi Bagja A</li>
+                    </ol>
+                </div>
+
+                <!-- Kebersihan -->
+                <div class="card-shadow rounded-xl p-6 text-center hover-lift bg-white">
+                    <h3 class="font-bold text-xl mb-4">Kebersihan</h3>
+                    <ol class="space-y-1 text-sm md:text-base list-decimal list-inside">
+                        <li>Chalista Shofura Q</li>
+                        <li>Tressa Apriliani</li>
+                    </ol>
+                </div>
+
+                <!-- Absensi -->
+                <div class="card-shadow rounded-xl p-6 text-center hover-lift bg-white">
+                    <h3 class="font-bold text-xl mb-4">Absensi</h3>
+                    <ol class="space-y-1 text-sm md:text-base list-decimal list-inside">
+                        <li>Kenken Kenisa</li>
+                        <li>Fitri Nur H</li>
+                    </ol>
+                </div>
+
+                <!-- Peralatan -->
+                <div class="card-shadow rounded-xl p-6 text-center hover-lift bg-white">
+                    <h3 class="font-bold text-xl mb-4">Peralatan</h3>
+                    <ol class="space-y-1 text-sm md:text-base list-decimal list-inside">
+                        <li>Nabila Yulistiana</li>
+                        <li>M Rasya D</li>
+                    </ol>
+                </div>
+
+            </div>
+        </div>
+    </section><!-- Achievements Section -->
+    <!-- Achievements Section -->
+    <section id="achievements" class="section py-20 bg-gradient-to-br from-red-50 to-white">
+        <div class="max-w-6xl mx-auto px-4">
+
+            <div class="text-center mb-14">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4 text-center section-title">
+                    Prestasi Kelas
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Card -->
+                <div
+                    class="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition duration-300 hover:-translate-y-2 border-t-4 border-yellow-500">
+                    <div class="flex items-center gap-3 mb-3">
+                        <i class="fas fa-trophy text-yellow-500 text-2xl"></i>
+                        <h3 class="font-bold text-lg">Juara 1 Fashion Show</h3>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-3">
+                        Kompetisi Mahastra SMK Mahardhika Batujajar
+                    </p>
+                    <span
+                        class="inline-block text-xs px-3 py-1 rounded-full bg-yellow-100 text-yellow-700 font-semibold">
+                        Juara 1
+                    </span>
+                </div>
+
+                <div
+                    class="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition duration-300 hover:-translate-y-2 border-t-4 border-yellow-500">
+                    <div class="flex items-center gap-3 mb-3">
+                        <i class="fas fa-trophy text-yellow-500 text-2xl"></i>
+                        <h3 class="font-bold text-lg">Juara 1 Cipta Carpon</h3>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-3">
+                        Kompetisi Mahastra SMK Mahardhika Batujajar
+                    </p>
+                    <span
+                        class="inline-block text-xs px-3 py-1 rounded-full bg-yellow-100 text-yellow-700 font-semibold">
+                        Juara 1
+                    </span>
+                </div>
+
+                <div
+                    class="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition duration-300 hover:-translate-y-2 border-t-4 border-gray-400">
+                    <div class="flex items-center gap-3 mb-3">
+                        <i class="fas fa-medal text-gray-500 text-2xl"></i>
+                        <h3 class="font-bold text-lg">Juara 2 Story Telling</h3>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-3">
+                        Kompetisi Mahastra SMK Mahardhika Batujajar
+                    </p>
+                    <span class="inline-block text-xs px-3 py-1 rounded-full bg-gray-100 text-gray-600 font-semibold">
+                        Juara 2
+                    </span>
+                </div>
+
+                <div
+                    class="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition duration-300 hover:-translate-y-2 border-t-4 border-blue-500">
+                    <div class="flex items-center gap-3 mb-3">
+                        <i class="fas fa-star text-blue-500 text-2xl"></i>
+                        <h3 class="font-bold text-lg">Duta Siswa Putri KBB 2025</h3>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-3">
+                        Bintang & Shaquilla
+                    </p>
+                    <span class="inline-block text-xs px-3 py-1 rounded-full bg-blue-100 text-blue-600 font-semibold">
+                        Non Akademik
+                    </span>
+                </div>
+
+                <div
+                    class="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition duration-300 hover:-translate-y-2 border-t-4 border-blue-500">
+                    <div class="flex items-center gap-3 mb-3">
+                        <i class="fas fa-star text-blue-500 text-2xl"></i>
+                        <h3 class="font-bold text-lg">Juara Karya Tulis Ilmiah</h3>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-3">
+                        Shaquilla
+                    </p>
+                    <span class="inline-block text-xs px-3 py-1 rounded-full bg-blue-100 text-blue-600 font-semibold">
+                        Non Akademik
+                    </span>
+                </div>
+
+                <div
+                    class="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition duration-300 hover:-translate-y-2 border-t-4 border-yellow-500">
+                    <div class="flex items-center gap-3 mb-3">
+                        <i class="fas fa-trophy text-yellow-500 text-2xl"></i>
+                        <h3 class="font-bold text-lg">Juara Harapan 1 Puisi Tingkat Provinsi</h3>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-3">
+                        Novtiana & Bintang
+                    </p>
+                    <span
+                        class="inline-block text-xs px-3 py-1 rounded-full bg-yellow-100 text-yellow-700 font-semibold">
+                        Juara 1
+                    </span>
+                </div>
+
+                <div
+                    class="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition duration-300 hover:-translate-y-2 border-t-4 border-yellow-500">
+                    <div class="flex items-center gap-3 mb-3">
+                        <i class="fas fa-trophy text-yellow-500 text-2xl"></i>
+                        <h3 class="font-bold text-lg">Juara Harapan 1 Pantun Tingkat Provinsi</h3>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-3">
+                        Novtiana
+                    </p>
+                    <span
+                        class="inline-block text-xs px-3 py-1 rounded-full bg-yellow-100 text-yellow-700 font-semibold">
+                        Juara 1
+                    </span>
+                </div>
+
+                <div
+                    class="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition duration-300 hover:-translate-y-2 border-t-4 border-yellow-500">
+                    <div class="flex items-center gap-3 mb-3">
+                        <i class="fas fa-trophy text-yellow-500 text-2xl"></i>
+                        <h3 class="font-bold text-lg">Juara Harapan 1 Bahasa Inggris</h3>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-3">
+                        Abizar, Kenken , Zulyan
+                    </p>
+                    <span
+                        class="inline-block text-xs px-3 py-1 rounded-full bg-yellow-100 text-yellow-700 font-semibold">
+                        Juara 1
+                    </span>
+                </div>
+
+                <div
+                    class="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition duration-300 hover:-translate-y-2 border-t-4 border-gray-400">
+                    <div class="flex items-center gap-3 mb-3">
+                        <i class="fas fa-medal text-gray-500 text-2xl"></i>
+                        <h3 class="font-bold text-lg">Juara Harapan 3 Lomba Pantun</h3>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-3">
+                        Aabizar
+                    </p>
+                    <span class="inline-block text-xs px-3 py-1 rounded-full bg-gray-100 text-gray-600 font-semibold">
+                        Juara 3
+                    </span>
+                </div>
+
+            </div>
+        </div>
+    </section><!-- Schedule Section -->
+    <section id="contact" class="section py-16">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12 section-title">
+                Media Sosial
+            </h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="card-shadow rounded-lg p-8" style="background-color: #ffffff;">
+                    <div class="space-y-4">
+                        <div class="flex items-center"><i class="fab fa-whatsapp text-2xl w-10"
+                                style="color: #25D366;"></i>
+                            <div>
+                                <div class="font-semibold">
+                                    WhatsApp (Fadli)
+                                </div><a href="https://wa.me/6283117591878" target="_blank" rel="noopener noreferrer"
+                                    class="hover:underline" style="color: #0284c7;">+62
+                                    831-1759-1878</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center"><i class="fab fa-instagram text-2xl w-10"
+                                style="color: #E1306C;"></i>
+                            <div>
+                                <div class="font-semibold">
+                                    Instagram
+                                </div><a href="https://www.instagram.com/11.rplone_?igsh=MW5wc3d4M3pvdm1ibg=="
+                                    target="_blank" rel="noopener noreferrer" class="hover:underline"
+                                    style="color: #0284c7;">@11.rplone</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center"><i class="fab fa-instagram text-2xl w-10"
+                                style="color: #E1306C;"></i>
+                            <div>
+                                <div class="font-semibold">
+                                    Instagram Sekolah
+                                </div><a
+                                    href="https://www.instagram.com/smk_mahardhika_batujajar?igsh=MTFyN3oyeGw2ZG80Yg=="
+                                    target="_blank" rel="noopener noreferrer" class="hover:underline"
+                                    style="color: #0284c7;">@smk_mahardhika_batujajar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-shadow rounded-lg p-8" style="background-color: #ffffff;">
+                    <h3 class="text-xl font-bold mb-6">Lokasi Sekolah</h3>
+                    <div class="mb-4">
+                        <p class="font-semibold">SMK Mahardhika Batujajar</p>
+                        <p>Jl. Raya Batujajar No. 30 Cangkorah, Desa Giriasih Kecamatan Batujajar</p>
+                        <p>Kabupaten Bandung Barat, Jawa Barat</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section><!-- Footer -->
+    <footer class="bg-red-700 text-white mt-16">
+        <div class="max-w-7xl mx-auto px-6 py-10">
+
+            <div class="grid md:grid-cols-3 gap-8 text-center md:text-left">
+
+                <!-- Tentang -->
+                <div>
+                    <h3 class="text-xl font-bold mb-3">XI RPL 1</h3>
+                    <p class="text-sm text-red-100">
+                        Website kelas XI RPL 1 SMK Mahardhika Batujajar.
+                        Bersama meraih prestasi dan membangun masa depan yang indah.
+                    </p>
+                </div>
+                <!-- Sosial Media -->
+                <div>
+                    <h3 class="text-xl font-bold mb-3">Ikuti Kami</h3>
+                    <div class="flex justify-center md:justify-start gap-6 text-2xl">
+                        <a href="https://www.instagram.com/11.rplone_?igsh=MW5wc3d4M3pvdm1ibg==" target="_blank"
+                            class="hover:scale-110 transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+
+                        <a href="https://wa.me/6283117591878" target="_blank" class="hover:scale-110 transition">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Garis Bawah -->
+            <div class="border-t border-red-500 mt-8 pt-4 text-center text-sm text-red-200">
+                © 2026 XI RPL 1 - Built & Designed by Fadli.
+            </div>
+
+        </div>
+    </footer><!-- Lightbox -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <div id="lightbox-content" class="text-9xl"></div><button onclick="closeLightbox()"
+            class="absolute top-4 right-4 text-white text-4xl">×</button>
+    </div>
+    <script>
+        const studentsData = [
+            { name: "Abizar Al Gifari", gender: "L", absen: 1, role: "Siswa", photo: "imgs/abizar.jpeg" },
+            { name: "Ahmad Rizki P", gender: "L", absen: 2, role: "Siswa", photo: "imgs/ahmad.jpeg" },
+            { name: "Aldi Febriansyah S", gender: "L", absen: 3, role: "Siswa", photo: "imgs/aldi.jpeg" },
+            { name: "Anita Lestari", gender: "P", absen: 4, role: "Siswi", photo: "imgs/anita.jpeg" },
+            { name: "Ardhyan Adam S", gender: "L", absen: 5, role: "Siswa", photo: "imgs/prof.jpeg" },
+            { name: "Azahra Anggraeni", gender: "P", absen: 6, role: "Siswi", photo: "imgs/zahra.jpeg" },
+            { name: "Azmian Abief R", gender: "L", absen: 7, role: "Siswa", photo: "imgs/azmian.jpeg" },
+            { name: "Bintang Rimas S", gender: "P", absen: 8, role: "Siswi", photo: "imgs/bintang.jpeg" },
+            { name: "Chalista Shofura Q", gender: "P", absen: 9, role: "Siswi", photo: "imgs/chalista.jpeg" },
+            { name: "Dewangga Dwi S", gender: "L", absen: 10, role: "Siswa", photo: "imgs/dewangga.jpeg" },
+            { name: "Dewanggi Dwi K", gender: "L", absen: 11, role: "Siswa", photo: "imgs/dewanggi.jpeg" },
+            { name: "Dymas Hajjan I", gender: "L", absen: 12, role: "Siswa", photo: "imgs/dimas.jpeg" },
+            { name: "Fadli Darismaisya", gender: "L", absen: 13, role: "Siswa", photo: "imgs/fadli.jpeg" },
+            { name: "Ferry Ardiansyah", gender: "L", absen: 14, role: "Siswa", photo: "imgs/fery.jpeg" },
+            { name: "Fitri Nur H", gender: "P", absen: 15, role: "Siswi", photo: "imgs/fitri.jpeg" },
+            { name: "Irawan Nugraha", gender: "L", absen: 16, role: "Siswa", photo: "imgs/irawan.jpeg" },
+            { name: "Karlina Sukmawati", gender: "P", absen: 17, role: "Siswi", photo: "imgs/kerlin.jpeg" },
+            { name: "Keisa Zakiatussyifa", gender: "P", absen: 18, role: "Siswi", photo: "imgs/keisa.jpeg" },
+            { name: "Kenken Kenisa", gender: "P", absen: 19, role: "Siswi", photo: "imgs/kenken.jpeg" },
+            { name: "M Albaniray B", gender: "L", absen: 20, role: "Siswa", photo: "imgs/alban.jpeg" },
+            { name: "M Fahry", gender: "L", absen: 21, role: "Siswa", photo: "imgs/fahry.jpeg" },
+            { name: "M Rasya D", gender: "L", absen: 22, role: "Siswa", photo: "imgs/rasya.jpeg" },
+            { name: "M Sukma", gender: "L", absen: 23, role: "Siswa", photo: "imgs/wira.jpeg" },
+            { name: "Mutiara Erisdha P", gender: "P", absen: 24, role: "Siswi", photo: "imgs/muthi.jpeg" },
+            { name: "Nabila Yulistiana", gender: "P", absen: 25, role: "Siswi", photo: "imgs/nabila.jpeg" },
+            { name: "Neng Sri M", gender: "P", absen: 26, role: "Siswi", photo: "imgs/sri.jpeg" },
+            { name: "Novtiana Aulia", gender: "P", absen: 27, role: "Siswi", photo: "imgs/novti.jpeg" },
+            { name: "Raihan Al-Fikri", gender: "L", absen: 28, role: "Siswa", photo: "imgs/rehan.jpeg" },
+            { name: "Rayyan Akbar S", gender: "L", absen: 29, role: "Siswa", photo: "imgs/rayyan.jpeg" },
+            { name: "Reva Sri Y", gender: "P", absen: 30, role: "Siswi", photo: "imgs/reva.jpeg" },
+            { name: "Rizqi Bagja A", gender: "L", absen: 31, role: "Siswa", photo: "imgs/iki.jpeg" },
+            { name: "Salsa Remina A", gender: "P", absen: 32, role: "Siswi", photo: "imgs/salsa.jpeg" },
+            { name: "Shaquilla Salsabila", gender: "P", absen: 33, role: "Siswi", photo: "imgs/qilla.jpeg" },
+            { name: "Silvy Apriani", gender: "P", absen: 34, role: "Siswi", photo: "imgs/silvy.jpeg" },
+            { name: "Suci Rahmawati", gender: "P", absen: 35, role: "Siswi", photo: "imgs/suci.jpeg" },
+            { name: "Syafira Ghiani", gender: "P", absen: 36, role: "Siswi", photo: "imgs/fira.jpeg" },
+            { name: "Tressa Apriliani", gender: "P", absen: 37, role: "Siswi", photo: "imgs/tresa.jpeg" },
+            { name: "Yovi Maulana W", gender: "L", absen: 38, role: "Siswa", photo: "imgs/yovi.jpeg" },
+            { name: "Zulfa Khoirunnisa", gender: "P", absen: 39, role: "Siswi", photo: "imgs/zulfa.jpeg" },
+            { name: "Zulyan Ar-Rojabi", gender: "L", absen: 40, role: "Siswa", photo: "imgs/zulyan.jpeg" },
+        ];
+
+        let currentFilter = "all";
+
+        function renderStudents(filter = "all", search = "") {
+            const grid = document.getElementById("students-grid");
+            const filteredStudents = studentsData.filter(student => {
+                const matchesFilter = filter === "all" || student.gender === filter;
+                const matchesSearch = student.name.toLowerCase().includes(search.toLowerCase());
+                return matchesFilter && matchesSearch;
+            });
+
+            grid.innerHTML = filteredStudents.map(student => `
+                <div class="card-shadow rounded-lg p-6 text-center hover-lift" style="background-color: #ffffff;">
+                    <div class="w-20 h-20 rounded-full mx-auto mb-4 overflow-hidden">
+                        <img src="${student.photo || 'imgs/default.png'}"
+                        alt="${student.name}"
+                        class="w-full h-full object-cover">
+                    </div>
+
+                    <h3 class="font-bold text-lg">${student.name}</h3>
+                    <p class="text-sm">Absen: ${student.absen}</p>
+                    ${student.role !== "-" ? `<p class="text-sm font-semibold mt-2" style="color: #0284c7;">${student.role}</p>` : ""}
+                </div>
+            `).join("");
+        }
+
+        function highlightTodaySchedule() {
+            const today = new Date().getDay();
+            if (today >= 1 && today <= 5) {
+                const scheduleBody = document.getElementById("schedule-body");
+                const rows = scheduleBody.querySelectorAll("tr");
+                rows.forEach(row => {
+                    const cells = row.querySelectorAll("td");
+                    if (cells.length > today) {
+                        cells[today].classList.add("today-highlight");
+                    }
+                });
+            }
+        }
+
+        function openLightbox(element) {
+            const lightbox = document.getElementById("lightbox");
+            const content = document.getElementById("lightbox-content");
+            content.textContent = element.textContent.trim();
+            lightbox.classList.add("active");
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById("lightbox");
+            lightbox.classList.remove("active");
+        }
+
+        // Mobile menu toggle
+        document.getElementById("mobile-btn").addEventListener("click", () => {
+            const menu = document.getElementById("mobile-menu");
+            menu.classList.toggle("hidden");
+        });
+
+        // Filter buttons
+        document.querySelectorAll(".filter-btn").forEach(btn => {
+            btn.addEventListener("click", (e) => {
+                currentFilter = e.target.dataset.filter;
+                const searchValue = document.getElementById("search-student").value;
+                renderStudents(currentFilter, searchValue);
+            });
+        });
+
+        // Search input
+        document.getElementById("search-student").addEventListener("input", (e) => {
+            renderStudents(currentFilter, e.target.value);
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener("click", function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute("href"));
+                if (target) {
+                    target.scrollIntoView({ behavior: "smooth" });
+                    const mobileMenu = document.getElementById("mobile-menu");
+                    if (!mobileMenu.classList.contains("hidden")) {
+                        mobileMenu.classList.add("hidden");
+                    }
+                }
+            });
+        });
+
+        // Initialize
+        renderStudents();
+        highlightTodaySchedule();
+    </script>
+    <script>(function () { function c() { var b = a.contentDocument || a.contentWindow.document; if (b) { var d = b.createElement('script'); d.innerHTML = "window.__CF$cv$params={r:'9b678af94009ce5d',t:'MTc2NzE2MDY4Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);"; b.getElementsByTagName('head')[0].appendChild(d) } } if (document.body) { var a = document.createElement('iframe'); a.height = 1; a.width = 1; a.style.position = 'absolute'; a.style.top = 0; a.style.left = 0; a.style.border = 'none'; a.style.visibility = 'hidden'; document.body.appendChild(a); if ('loading' !== document.readyState) c(); else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c); else { var e = document.onreadystatechange || function () { }; document.onreadystatechange = function (b) { e(b); 'loading' !== document.readyState && (document.onreadystatechange = e, c()) } } } })();</script>
+</body>
+
+</html>
