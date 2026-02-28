@@ -6,157 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Website Kelas X RPL 1</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        body {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
-        }
-
-        .fade-in {
-            animation: fadeIn 0.8s ease-in;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .hover-lift:hover {
-            transform: translateY(-5px);
-            transition: transform 0.3s ease;
-        }
-
-        .nav-link {
-            transition: all 0.3s ease;
-        }
-
-        .nav-link:hover {
-            transform: scale(1.05);
-        }
-
-        .card-shadow {
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            transition: box-shadow 0.3s ease;
-        }
-
-        .card-shadow:hover {
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-        }
-
-        .section {
-            scroll-margin-top: 70px;
-        }
-
-        .lightbox {
-            display: none;
-            position: fixed;
-            z-index: 9999;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
-        }
-
-        .lightbox.active {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .lightbox img {
-            max-width: 90%;
-            max-height: 90%;
-            object-fit: contain;
-        }
-
-        .today-highlight {
-            background-color: #fef3c7;
-            font-weight: 600;
-        }
-
-        .badge {
-            display: inline-block;
-            padding: 0.25rem 0.75rem;
-            border-radius: 9999px;
-            font-size: 0.75rem;
-            font-weight: 600;
-        }
-
-        .badge-new {
-            background-color: #dc2626;
-            color: white;
-        }
-
-        .badge-important {
-            background-color: #f59e0b;
-            color: white;
-        }
-
-        .nav-item {
-            position: relative;
-            color: white;
-            padding: 6px 0;
-            white-space: nowrap;
-            /* ini penting */
-        }
-
-        .nav-item::after {
-            content: "";
-            position: absolute;
-            width: 0%;
-            height: 2px;
-            left: 0;
-            bottom: -4px;
-            background: white;
-            transition: 0.3s;
-        }
-
-        .nav-item:hover::after {
-            width: 100%;
-        }
-
-        .mobile-item {
-            display: block;
-            padding: 10px;
-            border-radius: 8px;
-            color: white;
-            transition: 0.3s;
-        }
-
-        .mobile-item:hover {
-            background-color: #b91c1c;
-        }
-
-        .section-title {
-            color: #dc2626;
-        }
-
-        #mobile-menu {
-            overflow: hidden;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-    </style>
-    <style>
-        @view-transition {
-            navigation: auto;
-        }
-    </style>
-    <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
-    <script src="/_sdk/element_sdk.js" type="text/javascript"></script>
 </head>
 
 <body style="background-color: #fef2f2; color: #1e293b;"><!-- Navigation -->
@@ -243,11 +94,11 @@ bg-gradient-to-br from-red-800 to-red-600 text-white">
         </div>
     </section><!-- Identity Section -->
     <section id="identity" class="section py-16">
-        <div class="max-w-7xl mx-auto px-4">
+        <div class="max-w-7xl mx-auto px-4 ">
             <h2 class="text-4xl font-bold text-center mb-12 section-title">
                 Identitas Kelas
             </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 md:justify-center gap-5">
 
                 <div class="card-shadow rounded-lg p-5 md:p-8 hover-lift" style="background-color: #ffffff;">
                     <div class="flex items-center mb-6">
@@ -276,8 +127,8 @@ bg-gradient-to-br from-red-800 to-red-600 text-white">
 
                 <div class="card-shadow rounded-lg p-8" style="background-color: #ffffff;">
                     <h3 class="text-xl font-bold mb-4">Tentang Kelas</h3>
-                    <p class="mb-4">Kelas kami adalah siswa siswi yang solid dan berprestasi. Kami berkomitmen untuk
-                        mencapai keunggulan akademik dan non-akademik.</p>
+                    <p class="mb-4">Kami bukan hanya belajar teori, tetapi membangun keterampilan dan karakter kerja. 
+                        Sebagai siswa SMK, kami berkomitmen untuk berprestasi, kompeten, dan siap menghadapi tantangan industri.</p>
                     <div class="grid grid-cols-2 gap-4 mt-6">
                         <div class="text-center p-4 rounded-lg" style="background-color: #fef2f2;">
                             <div class="text-3xl font-bold" style="color: #dc2626;">
@@ -297,13 +148,15 @@ bg-gradient-to-br from-red-800 to-red-600 text-white">
                         </div>
                     </div>
                 </div>
-                <!-- Wali Kelas Section -->
+            </div>
+            <!-- Wali Kelas Section -->
+            <div class="grid grid-cols-1 md:grid-cols-1 md:justify-center gap-5">
                 <div class="mt-12">
                     <div class="card-shadow rounded-lg p-8 text-center hover-lift max-w-xl mx-auto"
                         style="background-color: #ffffff;">
 
                         <div class="w-40 h-40 mx-auto mb-6 rounded-full overflow-hidden border-4"
-                            style="border-color: hwb(0 44% 56%);">
+                            style="border-color: rgb(57, 57, 57);">
                             <img src="imgs/bu_divi.jpeg" alt="Divi Pratiwi, S.Pd" class="w-full h-full object-cover">
                         </div>
 
@@ -313,8 +166,8 @@ bg-gradient-to-br from-red-800 to-red-600 text-white">
                         </p>
 
                         <p class="text-gray-600">
-                            Pembimbing yang selalu mendukung siswa dalam mencapai prestasi akademik maupun
-                            non-akademik.
+                            Wali kelas yang membimbing, mengarahkan, serta mendampingi 
+                            siswa untuk berkembang dalam bidang akademik maupun non-akademik.
                         </p>
 
                     </div>
@@ -349,11 +202,11 @@ bg-gradient-to-br from-red-800 to-red-600 text-white">
                 Struktur Kelas XI RPL 1
             </h2>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6">
 
                 <!-- Ketua -->
                 <div class="card-shadow rounded-xl p-6 text-center hover-lift bg-white">
-                    <h3 class="font-bold text-xl mb-4">Ketua</h3>
+                    <h3 class="font-bold text-xl mb-4">Ketua Kelas</h3>
                     <ol class="space-y-1 text-sm md:text-base list-decimal list-inside">
                         <li>Irawan Nugraha</li>
                     </ol>
@@ -576,7 +429,7 @@ bg-gradient-to-br from-red-800 to-red-600 text-white">
             <h2 class="text-4xl font-bold text-center mb-12 section-title">
                 Media Sosial
             </h2>
-            <div class="grid md:grid-cols-2 gap-8">
+            <div class="grid md:grid-cols-2 gap-12">
                 <div class="card-shadow rounded-lg p-8" style="background-color: #ffffff;">
                     <div class="space-y-4">
                         <div class="flex items-center"><i class="fab fa-whatsapp text-2xl w-10"
@@ -629,7 +482,7 @@ bg-gradient-to-br from-red-800 to-red-600 text-white">
     <footer class="bg-red-700 text-white mt-16">
         <div class="max-w-7xl mx-auto px-6 py-10">
 
-            <div class="grid md:grid-cols-3 gap-8 text-center md:text-left">
+            <div class="grid md:grid-cols-1 gap-8 text-center justify-items-center">
 
                 <!-- Tentang -->
                 <div>
@@ -642,7 +495,7 @@ bg-gradient-to-br from-red-800 to-red-600 text-white">
                 <!-- Sosial Media -->
                 <div>
                     <h3 class="text-xl font-bold mb-3">Ikuti Kami</h3>
-                    <div class="flex justify-center md:justify-start gap-6 text-2xl">
+                    <div class="flex justify-center md:justify-center gap-6 text-2xl">
                         <a href="https://www.instagram.com/11.rplone_?igsh=MW5wc3d4M3pvdm1ibg==" target="_blank"
                             class="hover:scale-110 transition">
                             <i class="fab fa-instagram"></i>
@@ -663,133 +516,13 @@ bg-gradient-to-br from-red-800 to-red-600 text-white">
 
         </div>
     </footer><!-- Lightbox -->
-    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
-        <div id="lightbox-content" class="text-9xl"></div><button onclick="closeLightbox()"
-            class="absolute top-4 right-4 text-white text-4xl">×</button>
+    <div id="lightbox" class="lightbox">
+        <div class="lightbox-wrapper">
+            <div id="lightbox-content"></div>
+        </div>
     </div>
-    <script>
-        const studentsData = [
-            { name: "Abizar Al Gifari", gender: "L", absen: 1, role: "Siswa", photo: "imgs/abizar.jpeg" },
-            { name: "Ahmad Rizki P", gender: "L", absen: 2, role: "Siswa", photo: "imgs/ahmad.jpeg" },
-            { name: "Aldi Febriansyah S", gender: "L", absen: 3, role: "Siswa", photo: "imgs/aldi.jpeg" },
-            { name: "Anita Lestari", gender: "P", absen: 4, role: "Siswi", photo: "imgs/anita.jpeg" },
-            { name: "Ardhyan Adam S", gender: "L", absen: 5, role: "Siswa", photo: "imgs/prof.jpeg" },
-            { name: "Azahra Anggraeni", gender: "P", absen: 6, role: "Siswi", photo: "imgs/zahra.jpeg" },
-            { name: "Azmian Abief R", gender: "L", absen: 7, role: "Siswa", photo: "imgs/azmian.jpeg" },
-            { name: "Bintang Rimas S", gender: "P", absen: 8, role: "Siswi", photo: "imgs/bintang.jpeg" },
-            { name: "Chalista Shofura Q", gender: "P", absen: 9, role: "Siswi", photo: "imgs/chalista.jpeg" },
-            { name: "Dewangga Dwi S", gender: "L", absen: 10, role: "Siswa", photo: "imgs/dewangga.jpeg" },
-            { name: "Dewanggi Dwi K", gender: "L", absen: 11, role: "Siswa", photo: "imgs/dewanggi.jpeg" },
-            { name: "Dymas Hajjan I", gender: "L", absen: 12, role: "Siswa", photo: "imgs/dimas.jpeg" },
-            { name: "Fadli Darismaisya", gender: "L", absen: 13, role: "Siswa", photo: "imgs/fadli.jpeg" },
-            { name: "Ferry Ardiansyah", gender: "L", absen: 14, role: "Siswa", photo: "imgs/fery.jpeg" },
-            { name: "Fitri Nur H", gender: "P", absen: 15, role: "Siswi", photo: "imgs/fitri.jpeg" },
-            { name: "Irawan Nugraha", gender: "L", absen: 16, role: "Siswa", photo: "imgs/irawan.jpeg" },
-            { name: "Karlina Sukmawati", gender: "P", absen: 17, role: "Siswi", photo: "imgs/kerlin.jpeg" },
-            { name: "Keisa Zakiatussyifa", gender: "P", absen: 18, role: "Siswi", photo: "imgs/keisa.jpeg" },
-            { name: "Kenken Kenisa", gender: "P", absen: 19, role: "Siswi", photo: "imgs/kenken.jpeg" },
-            { name: "M Albaniray B", gender: "L", absen: 20, role: "Siswa", photo: "imgs/alban.jpeg" },
-            { name: "M Fahry", gender: "L", absen: 21, role: "Siswa", photo: "imgs/fahri2.jpeg" },
-            { name: "M Rasya D", gender: "L", absen: 22, role: "Siswa", photo: "imgs/rasya.jpeg" },
-            { name: "M Sukma", gender: "L", absen: 23, role: "Siswa", photo: "imgs/wira.jpeg" },
-            { name: "Mutiara Erisdha P", gender: "P", absen: 24, role: "Siswi", photo: "imgs/muthi.jpeg" },
-            { name: "Nabila Yulistina", gender: "P", absen: 25, role: "Siswi", photo: "imgs/nabila1.jpeg" },
-            { name: "Neng Sri M", gender: "P", absen: 26, role: "Siswi", photo: "imgs/sri.jpeg" },
-            { name: "Novtiana Aulia", gender: "P", absen: 27, role: "Siswi", photo: "imgs/novti.jpeg" },
-            { name: "Raihan Al-Fikri", gender: "L", absen: 28, role: "Siswa", photo: "imgs/rehan.jpeg" },
-            { name: "Rayyan Akbar S", gender: "L", absen: 29, role: "Siswa", photo: "imgs/rayyan.jpeg" },
-            { name: "Reva Sri Y", gender: "P", absen: 30, role: "Siswi", photo: "imgs/reva.jpeg" },
-            { name: "Rizqi Bagja A", gender: "L", absen: 31, role: "Siswa", photo: "imgs/iki.jpeg" },
-            { name: "Salsa Remina A", gender: "P", absen: 32, role: "Siswi", photo: "imgs/salsa.jpeg" },
-            { name: "Shaquilla Salsabila", gender: "P", absen: 33, role: "Siswi", photo: "imgs/qilla.jpeg" },
-            { name: "Silvy Apriani", gender: "P", absen: 34, role: "Siswi", photo: "imgs/silvy.jpeg" },
-            { name: "Suci Rahmawati", gender: "P", absen: 35, role: "Siswi", photo: "imgs/suci.jpeg" },
-            { name: "Syafira Ghiani", gender: "P", absen: 36, role: "Siswi", photo: "imgs/fira.jpeg" },
-            { name: "Tressa Apriliani", gender: "P", absen: 37, role: "Siswi", photo: "imgs/tresa.jpeg" },
-            { name: "Yovi Maulana W", gender: "L", absen: 38, role: "Siswa", photo: "imgs/yovi.jpeg" },
-            { name: "Zulfa Khoirunnisa", gender: "P", absen: 39, role: "Siswi", photo: "imgs/zulfa.jpeg" },
-            { name: "Zulyan Ar-Rojabi", gender: "L", absen: 40, role: "Siswa", photo: "imgs/zulyan.jpeg" },
-        ];
-
-        let currentFilter = "all";
-
-        function renderStudents(filter = "all", search = "") {
-            const grid = document.getElementById("students-grid");
-            const filteredStudents = studentsData.filter(student => {
-                const matchesFilter = filter === "all" || student.gender === filter;
-                const matchesSearch = student.name.toLowerCase().includes(search.toLowerCase());
-                return matchesFilter && matchesSearch;
-            });
-
-            grid.innerHTML = filteredStudents.map(student => `
-                <div class="card-shadow rounded-lg p-6 text-center hover-lift" style="background-color: #ffffff;">
-                    <div class="w-20 h-20 rounded-full mx-auto mb-4 overflow-hidden">
-                        <img src="${student.photo || 'imgs/default.png'}"
-                        alt="${student.name}"
-                        class="w-full h-full object-cover">
-                    </div>
-
-                    <h3 class="font-bold text-lg">${student.name}</h3>
-                    <p class="text-sm">Absen: ${student.absen}</p>
-                    ${student.role !== "-" ? `<p class="text-sm font-semibold mt-2" style="color: #0284c7;">${student.role}</p>` : ""}
-                </div>
-            `).join("");
-        }
-
-        function highlightTodaySchedule() {
-            const today = new Date().getDay();
-            if (today >= 1 && today <= 5) {
-                const scheduleBody = document.getElementById("schedule-body");
-                const rows = scheduleBody.querySelectorAll("tr");
-                rows.forEach(row => {
-                    const cells = row.querySelectorAll("td");
-                    if (cells.length > today) {
-                        cells[today].classList.add("today-highlight");
-                    }
-                });
-            }
-        }
-
-        function openLightbox(element) {
-            const lightbox = document.getElementById("lightbox");
-            const content = document.getElementById("lightbox-content");
-            content.textContent = element.textContent.trim();
-            lightbox.classList.add("active");
-        }
-
-        function closeLightbox() {
-            const lightbox = document.getElementById("lightbox");
-            lightbox.classList.remove("active");
-        }
-
-        // Mobile menu toggle 
-        document.getElementById("mobile-btn").addEventListener("click", () => {
-            const menu = document.getElementById("mobile-menu");
-            menu.classList.toggle("hidden");
-        });
-
-        // Filter buttons
-        document.querySelectorAll(".filter-btn").forEach(btn => {
-            btn.addEventListener("click", (e) => {
-                currentFilter = e.target.dataset.filter;
-                const searchValue = document.getElementById("search-student").value;
-                renderStudents(currentFilter, searchValue);
-            });
-        });
-
-        // Search input
-        document.getElementById("search-student").addEventListener("input", (e) => {
-            renderStudents(currentFilter, e.target.value);
-        });
-
-
-        // Initialize
-        renderStudents();
-        highlightTodaySchedule();
-    </script>
+    <script src="js/script.js"></script>
     <script>(function () { function c() { var b = a.contentDocument || a.contentWindow.document; if (b) { var d = b.createElement('script'); d.innerHTML = "window.__CF$cv$params={r:'9b678af94009ce5d',t:'MTc2NzE2MDY4Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);"; b.getElementsByTagName('head')[0].appendChild(d) } } if (document.body) { var a = document.createElement('iframe'); a.height = 1; a.width = 1; a.style.position = 'absolute'; a.style.top = 0; a.style.left = 0; a.style.border = 'none'; a.style.visibility = 'hidden'; document.body.appendChild(a); if ('loading' !== document.readyState) c(); else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c); else { var e = document.onreadystatechange || function () { }; document.onreadystatechange = function (b) { e(b); 'loading' !== document.readyState && (document.onreadystatechange = e, c()) } } } })();</script>
 </body>
 
 </html>
-
-
