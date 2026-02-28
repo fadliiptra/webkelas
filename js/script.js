@@ -428,10 +428,11 @@ function openLightbox(studentName) {
   content.innerHTML = `
         <div class="lightbox-container relative">
 
-            <div class="w-full aspect-[3/4] bg-gray-200">
-                <img src="${student.photo}" 
-                     class="w-full h-full object-cover">
-            </div>
+            <div class="w-full flex justify-center items-center bg-gray-200">
+    <img src="${student.photo}" 
+         class="w-full h-auto object-cover block"
+         style="object-position: center;">
+</div>
 
             <div class="p-5 text-center">
 
