@@ -5,7 +5,7 @@ const studentsData = [
     absen: 1,
     role: "Siswa",
     photo: "imgs/abizar.jpeg",
-    instagram: "none",
+    instagram: "Abizar_alg.fari",
     fullName: "Abizar Al Gifari",
   },
   {
@@ -32,7 +32,7 @@ const studentsData = [
     absen: 4,
     role: "Siswi",
     photo: "imgs/anita.jpeg",
-    instagram: "none",
+    instagram: "anita.llsstari",
     fullName: "Anita Lestari",
   },
   {
@@ -41,7 +41,7 @@ const studentsData = [
     absen: 5,
     role: "Siswa",
     photo: "imgs/prof.jpeg",
-    instagram: "none",
+    instagram: "fiver.fr",
     fullName: "Ardhyan Adam Syahputra Hidayat",
   },
   {
@@ -50,7 +50,7 @@ const studentsData = [
     absen: 6,
     role: "Siswi",
     photo: "imgs/zahra.jpeg",
-    instagram: "none",
+    instagram: "zahraan__ann",
     fullName: "Azahra Anggraeni",
   },
   {
@@ -68,7 +68,7 @@ const studentsData = [
     absen: 8,
     role: "Siswi",
     photo: "imgs/bintang.jpeg",
-    instagram: "none",
+    instagram: "bintangrmssy",
     fullName: "Bintang Rimas Syakira",
   },
   {
@@ -77,7 +77,7 @@ const studentsData = [
     absen: 9,
     role: "Siswi",
     photo: "imgs/chalista.jpeg",
-    instagram: "none",
+    instagram: "woncha__18",
     fullName: "Chalista Shofura Qiwantari",
   },
   {
@@ -131,7 +131,7 @@ const studentsData = [
     absen: 15,
     role: "Siswi",
     photo: "imgs/fitri.jpeg",
-    instagram: "none",
+    instagram: "ftriinurrhfifah",
     fullName: "Fitri Nur Hafifah",
   },
   {
@@ -158,7 +158,7 @@ const studentsData = [
     absen: 18,
     role: "Siswi",
     photo: "imgs/keisa.jpeg",
-    instagram: "none",
+    instagram: "lovematcha__00",
     fullName: "Keisa Zakiatussyifa",
   },
   {
@@ -167,7 +167,7 @@ const studentsData = [
     absen: 19,
     role: "Siswi",
     photo: "imgs/kenken.jpeg",
-    instagram: "none",
+    instagram: "kenkennsa",
     fullName: "Kenken Kenisa",
   },
   {
@@ -212,7 +212,7 @@ const studentsData = [
     absen: 24,
     role: "Siswi",
     photo: "imgs/muthi.jpeg",
-    instagram: "none",
+    instagram: "akuumutiia_",
     fullName: "Mutiara Erisdha Putri",
   },
   {
@@ -221,7 +221,7 @@ const studentsData = [
     absen: 25,
     role: "Siswi",
     photo: "imgs/nabila1.jpeg",
-    instagram: "none",
+    instagram: "lislabila",
     fullName: "Nabila Yulistina",
   },
   {
@@ -230,7 +230,7 @@ const studentsData = [
     absen: 26,
     role: "Siswi",
     photo: "imgs/sri.jpeg",
-    instagram: "none",
+    instagram: "sri.mlyani_",
     fullName: "Neng Sri Mulyani",
   },
   {
@@ -239,7 +239,7 @@ const studentsData = [
     absen: 27,
     role: "Siswi",
     photo: "imgs/novti.jpeg",
-    instagram: "none",
+    instagram: "novtia.ulie",
     fullName: "Novtiana Aulia",
   },
   {
@@ -266,7 +266,7 @@ const studentsData = [
     absen: 30,
     role: "Siswi",
     photo: "imgs/reva.jpeg",
-    instagram: "none",
+    instagram: "epapipuu",
     fullName: "Reva Sri Yandanu",
   },
   {
@@ -284,7 +284,7 @@ const studentsData = [
     absen: 32,
     role: "Siswi",
     photo: "imgs/salsa.jpeg",
-    instagram: "none",
+    instagram: "salsaremita.a",
     fullName: "Salsa Remina Anjani",
   },
   {
@@ -293,7 +293,7 @@ const studentsData = [
     absen: 33,
     role: "Siswi",
     photo: "imgs/qilla.jpeg",
-    instagram: "none",
+    instagram: "shaquilla_salsabila",
     fullName: "Shaquilla Salsabila",
   },
   {
@@ -302,7 +302,7 @@ const studentsData = [
     absen: 34,
     role: "Siswi",
     photo: "imgs/silvy.jpeg",
-    instagram: "none",
+    instagram: "viyyy_147",
     fullName: "Silvy Apriani",
   },
   {
@@ -311,7 +311,7 @@ const studentsData = [
     absen: 35,
     role: "Siswi",
     photo: "imgs/suci.jpeg",
-    instagram: "none",
+    instagram: "srahmwtii",
     fullName: "Suci Rahmawati",
   },
   {
@@ -320,7 +320,7 @@ const studentsData = [
     absen: 36,
     role: "Siswi",
     photo: "imgs/fira.jpeg",
-    instagram: "none",
+    instagram: "blubverrypies_",
     fullName: "Syafira Ghiani",
   },
   {
@@ -329,7 +329,7 @@ const studentsData = [
     absen: 37,
     role: "Siswi",
     photo: "imgs/tresa.jpeg",
-    instagram: "none",
+    instagram: "tresa_aprl",
     fullName: "Tressa Apriliani",
   },
   {
@@ -347,7 +347,7 @@ const studentsData = [
     absen: 39,
     role: "Siswi",
     photo: "imgs/zulfa.jpeg",
-    instagram: "none",
+    instagram: "hyunzul12",
     fullName: "Zulfa Khoirunnisa",
   },
   {
