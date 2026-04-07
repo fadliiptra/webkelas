@@ -113,7 +113,7 @@ const studentsData = [
     absen: 13,
     role: "Siswa",
     photo: "imgs/fadli.jpeg",
-    instagram: "fputra_510",
+    instagram: "fputra_004",
     fullName: "Fadli Darismaisya Putra",
   },
   {
